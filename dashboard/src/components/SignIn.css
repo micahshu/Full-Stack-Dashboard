@@ -1,11 +1,23 @@
-.wrapper {
+.signInWrapper {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #FF6E6C;
 }
 
-.card {
+.signInCard {
     padding: 5rem;
     border: 3px solid black ;
+    background-color: #67568C;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 1);
+    border-radius: 5px;
+}
+
+.signInButton {
+    
+    border: 3px solid black ;
+    background-color: white;
+    
+    border-radius: 5px;
 }

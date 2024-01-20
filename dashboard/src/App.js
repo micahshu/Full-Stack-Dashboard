@@ -1,6 +1,5 @@
 import './App.css';
-
-import React from 'react';
+import React, { useState } from 'react';
 import SignIn from './components/SignIn';
 import firebase from 'firebase/compat/app'; 
 
@@ -9,7 +8,7 @@ import 'firebase/compat/auth';
 
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
-
+import SidePanel from './components/SidePanel';
 firebase.initializeApp({
     apiKey: "AIzaSyD91IJyEM0QYmQIVUI9K637FqhQdhLg3_o",
     authDomain: "dashboard-af8ff.firebaseapp.com",
@@ -32,12 +31,9 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <SignOut />
-      </header>
-      
+     
       <section>
-        {user ? <ChatRoom /> : <SignIn />}
+        {user ? <Dashboard /> : <SignIn />}
       </section>
 
     </div>
@@ -52,13 +48,27 @@ function SignOut(){
   )
 }
 
-function ChatRoom() {
+function Dashboard() {
+  const [isActive, setIsActive] = useState(false);
+
+  // Event handler for button click
+  const togglePanel = () => {
+    // Toggle the class on each click
+    setIsActive(!isActive);
+  };
+
   const [user] = useAuthState(auth);
   console.log(user)
   return (
     <div>
-      <h2> Welcome, {user.displayName}</h2>
-      <img src={user.photoURL}></img>
+      <div >
+        <button className="buttonDiv" onClick={togglePanel}>click</button>
+      </div>
+      <div>
+      <SidePanel isActive={isActive} togglePanel={togglePanel} />
+
+      </div>
+      
     </div>
   )
 }

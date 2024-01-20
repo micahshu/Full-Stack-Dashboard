@@ -9,9 +9,9 @@ export default function SignIn() {
   };
 
   return (
-    <div className="wrapper">
-      <div className="card">
-        <button onClick={signInWithGoogle}>Sign in with Google</button>
+    <div className="signInWrapper">
+      <div className="signInCard">
+        <button className="signInButton" onClick={signInWithGoogle}>Sign in with Google</button>
       </div>
     </div>
   );

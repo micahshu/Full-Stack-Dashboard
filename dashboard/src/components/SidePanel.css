@@ -1,0 +1,44 @@
+
+.sidePanel {
+    min-height: 100vh;
+    background-color: aliceblue;
+    max-width: 30% ;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+
+}
+
+
+
+.panelClosed {
+    animation-duration: 1s;
+    animation-name: fadeout;
+    opacity: 0%;
+}
+
+.panelOpen {
+    animation-duration: 1s;
+    animation-name: fadein;
+    opacity: 100%;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0%;
+    }
+  
+    to {
+        opacity: 100%;
+    }
+  }
+
+  @keyframes fadeout {
+    from {
+        opacity: 100%;
+    }
+  
+    to {
+        opacity: 0%;
+    }
+  }
